@@ -27,3 +27,19 @@ button {
     cursor: pointer;
     font-size: 25px;
 }
+
+#message-1 {
+    font-size: 40px;
+    margin-top: 30px;
+    color: #333;
+}
+
+#message-2 {
+    font-size: 40px;
+    margin-top: 30px;
+    color: #000000;
+    display: inline-block;
+    background-color: #e7fce4;
+    border-radius: 20px;
+    padding: 50px 40px;
+}
