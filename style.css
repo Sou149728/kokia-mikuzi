@@ -43,3 +43,16 @@ button {
     border-radius: 20px;
     padding: 50px 40px;
 }
+
+#kokia-image {
+    display: block;
+    margin: 20px auto;
+}
+
+#kokiageddan {
+    display: none;
+    margin: 20px auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: #000;
+}

@@ -1,4 +1,11 @@
 function omikuji() {
+    const kokiaImage = document.getElementById("kokia-image");
+    const video = document.getElementById("kokiageddan");
+
+    if (!kokiaImage || !video) {
+        return;
+    }
+
     const unsei = [
         "大吉",
         "中吉",
@@ -14,7 +21,8 @@ const daikichi = [
        "ラッキーアイテムは他人を信じる心!!",
        "ラッキーパーソンは噓を簡単に信じる人!!",
        "「ちぇこ―」、「こいめで～」を多用するといいよ",
-       "なんかわからんけど、一回は耐えるよ"
+       "なんかわからんけど、一回は耐えるよ",
+       "動画ゲット"
 ]
 
 const chuukichi = [
@@ -48,22 +56,33 @@ const shokichi = [
 
     const randomDaikichi = daikichi[Math.floor(Math.random() * daikichi.length)];
     const randomChuukichi = chuukichi[Math.floor(Math.random() * chuukichi.length)];
-    const randomShokichi = shokichi[Math.floor(Math.random() * shokichi.length)];   
+    const randomShokichi = shokichi[Math.floor(Math.random() * shokichi.length)];
+
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+    video.style.display = "none";
+    kokiaImage.style.display = "block";
 
     if (random === "大吉") {
-        document.getElementById("kokia-image").src = "88_20260926204620.png";
-
+        kokiaImage.src = "88_20260926204620.png";
         document.getElementById("message-2").textContent = randomDaikichi;
-  
-    }
-    if (random === "中吉") {
-        document.getElementById("kokia-image").src = "91_20260926204522.png";
 
+        if (randomDaikichi === "動画ゲット") {
+            kokiaImage.style.display = "none";
+            video.src = "コキアさんゲッダン.mp4";
+            video.style.display = "block";
+            video.play().catch(() => {});
+        }
+    }
+
+    if (random === "中吉") {
+        kokiaImage.src = "91_20260926204522.png";
         document.getElementById("message-2").textContent = randomChuukichi;
     }
-    if (random === "小吉") {
-        document.getElementById("kokia-image").src = "89_20260926204612.png";
 
+    if (random === "小吉") {
+        kokiaImage.src = "89_20260926204612.png";
         document.getElementById("message-2").textContent = randomShokichi;
     }
 
