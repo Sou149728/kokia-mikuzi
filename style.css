@@ -66,4 +66,7 @@ button {
     z-index: 9999;
     object-fit: cover;
     display: none;
+    opacity: 1;
+    transition: opacity 1s ease;
+    -webkit-transition: opacity 1s ease;
 }

@@ -1,9 +1,14 @@
 function startAnimation() {
     const videokokia = document.getElementById("omikuji-start");
-    if (videokokia) {
-        videokokia.style.display = "block";
-        videokokia.play().catch(() => {});
+    if (!videokokia) {
+        return;
     }
+
+    videokokia.style.display = "block";
+    videokokia.style.opacity = "1";
+    videokokia.style.transition = "opacity 1s ease";
+    videokokia.style.webkitTransition = "opacity 1s ease";
+    videokokia.play().catch(() => {});
 }
 
 function omikuji() {
