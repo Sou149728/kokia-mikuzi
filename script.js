@@ -1,3 +1,11 @@
+function startAnimation() {
+    const videokokia = document.getElementById("omikuji-start");
+    if (videokokia) {
+        videokokia.style.display = "block";
+        videokokia.play().catch(() => {});
+    }
+}
+
 function omikuji() {
     const kokiaImage = document.getElementById("kokia-image");
     const video = document.getElementById("kokiageddan");
@@ -10,6 +18,7 @@ function omikuji() {
         "大吉",
         "中吉",
         "小吉",
+        "凶"
 
     ];
 
@@ -20,7 +29,7 @@ const daikichi = [
        "好きな人への好感度上昇率12.5%増加",
        "ラッキーアイテムは他人を信じる心!!",
        "ラッキーパーソンは噓を簡単に信じる人!!",
-       "「ちぇこ―」、「こいめで～」を多用するといいよ",
+       "声を出すといいことあるかも",
        "なんかわからんけど、一回は耐えるよ",
        "動画ゲット"
 ]
@@ -43,13 +52,23 @@ const shokichi = [
        "コキアがかわいいよ",
        "好きな人の機嫌がちょっとわるいよ",
        "ラッキーアイテムは宮城県!!",
-       "ラッキーパーソンなんていねぇよ",
+       "ラッキーパーソンは苦手な人!!",
        "はい、失格～(笑)",
        "物の落としやすさが36%上昇"
 
        
 ]
 
+const kyou = [
+    "ばーか",
+    "死はいずれやってくる",
+    "コキアがちょっとかわいそう",
+    "まぁ、なんか、がんばれよ、、、",
+    "ラッキーパーソンはなんていねぇよ",
+    "ラッキーアイテムは毒!!",
+    "周りといまいち会話がかみ合わないよ。つらいね",
+    "理不尽に不幸が降りかかる確率が100%上昇"
+]
 
 
     const random = unsei [Math.floor(Math.random() * unsei.length)];
@@ -57,6 +76,7 @@ const shokichi = [
     const randomDaikichi = daikichi[Math.floor(Math.random() * daikichi.length)];
     const randomChuukichi = chuukichi[Math.floor(Math.random() * chuukichi.length)];
     const randomShokichi = shokichi[Math.floor(Math.random() * shokichi.length)];
+    const randomKyou = kyou[Math.floor(Math.random() * kyou.length)];
 
     video.pause();
     video.removeAttribute("src");
@@ -84,6 +104,11 @@ const shokichi = [
     if (random === "小吉") {
         kokiaImage.src = "89_20260926204612.png";
         document.getElementById("message-2").textContent = randomShokichi;
+    }
+
+    if (random === "凶") {
+        kokiaImage.src = "凶.png";
+        document.getElementById("message-2").textContent = randomKyou;
     }
 
 }

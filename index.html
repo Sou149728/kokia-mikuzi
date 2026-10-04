@@ -10,10 +10,47 @@
         <p id="message-1"><strong>今日の運勢はなにかな（笑）</strong></p>
         <script src="script.js"></script>
 
-        <button onclick="omikuji()">おみくじを引く</button>
+        <button id="draw-button">おみくじを引く</button>
 
-        <p><img id="kokia-image" src="" width="450" height="450"></p>
+        <script>
+           const drawbutton = document.getElementById('draw-button')
+
+           drawbutton.addEventListener("click", function() {
+            drawbutton.disabled = true;
+
+           startAnimation();
+
+            setTimeout(() => {
+                omikuji();
+                drawbutton.disabled = false;
+                
+            }, 3000);
+
+            setTimeout(() => {
+                const videokokia = document.getElementById("omikuji-start");
+                if (videokokia) {
+                    videokokia.style.transition = "opacity 1s";
+                    videokokia.style.opacity = 0;
+                    setTimeout(() => {
+                         videokokia.pause();
+                         videokokia.currentTime = 0;
+                         videokokia.style.display = "none";
+                         videokokia.style.opacity = 1;
+                    }, 1000);
+                   
+                   
+                }
+            }, 10000);
+           })
+            ;
+        </script>
+
+
+        <p><img id="kokia-image" src="おみくじ.png" width="450" height="450"></p>
         <video id="kokiageddan" controls playsinline style="display:none; width:500px; max-width:100%; margin:20px auto;"></video>
-        <p id="message-2"></p>
+        <p id="message-2"></p> 
+        
+        <video id="omikuji-start" src="コキアさんおみくじ.mp4" style="display:none; "></video>
+
     </body>
 </html>

@@ -21,11 +21,11 @@ h1 {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 40px 60px;
+    padding: 50px 70px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 40px;
 }
 
 #message-1 {
@@ -55,4 +55,15 @@ button {
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     background-color: #000;
+}
+
+#omikuji-start {
+   position: fixed;
+   top: 0;  
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    object-fit: cover;
+    display: none;
 }
